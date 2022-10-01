@@ -1,0 +1,28 @@
+@page
+@model RazorTraining.Pages.Restaurants.RestaurantsModel
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>Restaurants List</h1>
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+      <input type="search" class="form-control" placeholder="Search for..." asp-for="SearchTerm">
+      <span class="input-group-btn" >
+        <button class="btn btn-default" type="submit">Go!</button>
+      </span>
+    </div><!-- /input-group -->
+    </div>
+</form>
+<table class="table">
+    @foreach (var Restaurant in Model.RestaurantList)
+    {
+        <tr>
+            <td>@Restaurant.Name</td>      
+            <td>@Restaurant.Location</td>  
+            <td>@Restaurant.Cuisine</td>    
+        </tr>   
+    }
+</table>
+
